@@ -140,5 +140,6 @@ t.spriteSheet({
 - `index`: The tile to display. An index of `0` will be the top-left tile, moves left to right then top to bottom. An index greater than the number of tiles will loop back to an index of `0`.
 - `width`: Scale the displayed tile to this width in game coordinates.
 - `height`: Scale the displayed tile to this height in game coordinates.
+- `color`: Optionally and probably not very fast: recolor the sprite using canvas composite mode
 
 <img src="/img/sprite-sheet-index.png" width="50%" />

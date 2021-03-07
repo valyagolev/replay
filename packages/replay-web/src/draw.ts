@@ -119,7 +119,8 @@ function drawTexture(
         texture.props.rows,
         texture.props.index,
         texture.props.width,
-        texture.props.height
+        texture.props.height,
+        texture.props.color
       );
       return 0;
   }
@@ -270,13 +271,15 @@ const drawUtils = (ctx: CanvasRenderingContext2D) => ({
     rows: number,
     index: number,
     width: number,
-    height: number
+    height: number,
+    color?: string
   ) {
     const tileWidth = image.width / columns;
     const tileHeight = image.height / rows;
 
     const columnIndex = index % columns;
     const rowIndex = Math.floor(index / columns) % rows;
+
     ctx.drawImage(
       image,
       columnIndex * tileWidth,
@@ -288,5 +291,13 @@ const drawUtils = (ctx: CanvasRenderingContext2D) => ({
       width,
       height
     );
+    if (color) {
+      ctx.globalCompositeOperation = "source-in";
+
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.globalCompositeOperation = "source-over";
+    }
   },
 });

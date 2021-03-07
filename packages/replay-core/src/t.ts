@@ -233,6 +233,7 @@ export const t = {
     y?: number;
     rotation?: number;
     testId?: string;
+    color?: string;
   }): Texture => {
     return {
       type: "spriteSheet",
@@ -245,6 +246,7 @@ export const t = {
         index: props.index,
         width: props.width,
         height: props.height,
+        color: props.color,
       },
     };
   },
@@ -331,6 +333,7 @@ type SpriteSheetProps = BaseProps & {
   index: number;
   width: number;
   height: number;
+  color?: string;
 };
 export interface SpriteSheetTexture {
   type: "spriteSheet";
